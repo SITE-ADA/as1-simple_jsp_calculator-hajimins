@@ -1,0 +1,1 @@
+<%String browserDetails = request. getHeader("User-Agent"); %>
