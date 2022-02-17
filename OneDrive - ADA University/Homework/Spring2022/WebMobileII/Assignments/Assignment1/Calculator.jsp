@@ -1,5 +1,4 @@
 <%@ page errorPage="errorPage.jsp"%>
-<%@ page import = "ada.wm2.helper.Calculator" %>
 <%@page import = "java.util.*"%>
 
 
@@ -11,11 +10,35 @@
 </head>
 <body>
 	<%
-		double p1 = Double.parseDouble(request.getParameter("p1"));
+	/*	String p1 = request.getParameter("p1");
 		String op = request.getParameter("op");
-		double p2 = Double.parseDouble(request.getParameter("p2"));
+		String p2 = request.getParameter("p2");
 
-		out.print(ada.wm2.helper.Counter.calculate(p1, p2, op));
+		out.print(Calculator.calculate(p1, p2, op));*/
+
+
+		int ans = 0;
+		String op_code = "";	
+		int p1 = Integer.parseInt(request.getParameter("p1"));
+		String op = request.getParameter("op");
+		int p2 = Integer.parseInt(request.getParameter("p2"));
+		if(op.equals("add")){
+			ans = p1 + p2;
+			op_code = "+";
+		}
+		if(op.equals("sub")){
+			ans = p1 - p2;
+			op_code = "-";
+		}
+		if(op.equals("mul")){
+			ans = p1 * p2;
+			op_code = "*";
+		}
+		if(op.equals("div")){
+			ans = p1 / p2;
+			op_code = "/";
+		}
+		out.print(p1 + op_code + p2 + " = " + ans);
 	%>
 
 
